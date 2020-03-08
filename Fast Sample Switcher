@@ -1,0 +1,85 @@
+void setup() {
+  // put your setup code here, to run once:
+  #define NUM_SAMPLES 10
+
+
+Serial.begin(9600);
+
+pinMode(7, OUTPUT); 
+pinMode(6, OUTPUT); 
+//digitalWrite (7,LOW);
+
+int sample_count = 0;
+int sample_count_1 = 0;
+   double sum = 0;
+   double sum_1 = 0;
+   double resistance;
+   double R1=100;
+   double Voltage_Supply=5.0;
+   int resistors = 2;
+  
+     
+    
+double voltage = 0.0;
+double voltage_1 = 0.0;
+    
+
+    
+  //   for (int i=0;i++;i<2){
+      //  if (i==0){
+        digitalWrite (7,HIGH);
+        digitalWrite (6,LOW);
+      //  }else if (i==1){
+          
+      //  }
+
+        sum=0;
+        while (sample_count < NUM_SAMPLES) {
+        sum += analogRead(A0);
+        sample_count++;
+        delay(10);
+        
+    }
+    voltage = (sum / (NUM_SAMPLES))*5.0/1024;
+
+    Serial.print(voltage);
+    Serial.println (" V");
+    
+    resistance =(voltage*R1)/(Voltage_Supply-voltage);
+
+    Serial.print(resistance);
+    Serial.println (" K Ohm");
+
+    digitalWrite (7,LOW);
+        digitalWrite (6,HIGH);
+
+//        delay (2000);
+          sum_1=0;
+        while (sample_count_1 < NUM_SAMPLES) {
+        sum_1 += analogRead(A0);
+        sample_count_1++;
+        delay(10);
+
+    }
+    
+    voltage_1 = (sum_1 / (NUM_SAMPLES))*5.0/1024;
+
+    Serial.print(voltage);
+    Serial.println (" V");
+    
+    resistance =(voltage_1*R1)/(Voltage_Supply-voltage);
+
+    Serial.print(resistance);
+    Serial.println (" K Ohm");
+    
+  
+     
+
+    
+}
+
+void loop() {
+
+
+
+}  
