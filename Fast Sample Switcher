@@ -24,14 +24,9 @@ double voltage = 0.0;
 double voltage_1 = 0.0;
     
 
-    
-  //   for (int i=0;i++;i<2){
-      //  if (i==0){
         digitalWrite (7,HIGH);
         digitalWrite (6,LOW);
-      //  }else if (i==1){
-          
-      //  }
+
 
         sum=0;
         while (sample_count < NUM_SAMPLES) {
@@ -53,7 +48,6 @@ double voltage_1 = 0.0;
     digitalWrite (7,LOW);
         digitalWrite (6,HIGH);
 
-//        delay (2000);
           sum_1=0;
         while (sample_count_1 < NUM_SAMPLES) {
         sum_1 += analogRead(A0);
